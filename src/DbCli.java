@@ -12,6 +12,7 @@ public class DbCli {
     private TablePrinter tablePrinter = new TablePrinter();
 
     private static void cliLoop(IQueryEngine qe) { // method to control the cli inputs from the user
+        System.out.print("SQL> ");
         String sql = scanner.next().replace("\n", " ").replace("\r", "").trim();
         TableDto result;
 
@@ -25,7 +26,7 @@ public class DbCli {
             }
         }
 
-        if (result.message.isEmpty) {
+        if (result.message.isEmpty()) {
             tablePrinter.print(result);
         } else {
             System.out.println(result.message);
