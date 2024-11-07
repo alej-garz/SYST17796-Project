@@ -1,0 +1,80 @@
+<!DOCTYPE html>
+<html xmlns:th="https://www.thymeleaf.org">
+
+<head>
+	<title>Menu Management</title>
+	<link rel="stylesheet" href="/style.css">
+</head>
+
+<body>
+	<nav>
+		<ul>
+			<li><a th:href="@{/}">Dashboard</a></li>
+			<li><a th:href="@{/menu}">Manage Menu</a></li>
+			<li><a th:href="@{/createOrder}">Create Order</a></li>
+		</ul>
+	</nav>
+
+	<header>
+		<h1>Menu Management</h1>
+		<p>Manage and update the restaurant menu. Add new items, modify existing ones, or remove items that are no
+			longer available.</p>
+	</header>
+	<main>
+		<h2>Our Menu</h2>
+		<table th:if="${menuItemList != null && !#lists.isEmpty(menuItemList)}">
+			<tr>
+				<th>Name</th>
+				<th>Description</th>
+				<th>Price</th>
+				<th>Category</th>
+				<th>Available</th>
+				<th>Edit</th>
+				<th>Delete</th>
+			</tr>
+			<tr th:each="s : ${menuItemList}">
+				<td th:text="${s.name}"></td>
+				<td th:text="${s.description}"></td>
+				<td th:text="${s.price}"></td>
+				<td th:text="${s.category}"></td>
+				<td th:text="${s.available ? 'Yes' : 'No'}"></td>
+				<td><a th:href="@{/editMenuItemById/{id}(id=${s.id})}">Edit</a></td>
+				<td><a th:href="@{/deleteMenuItemById/{id}(id=${s.id})}">Delete</a></td>
+			</tr>
+		</table>
+		<br>
+		<hr><br>
+
+		<form method="post" th:action="@{/insertMenuItem}" th:object="${menuItem}">
+			<h2>Add / Update Menu Item</h2>
+			<input type="hidden" th:field="*{id}" />
+
+			<label>Name:</label>
+			<input type="text" th:field="*{name}" /><br>
+
+			<label>Description:</label>
+			<input type="text" th:field="*{description}" /><br>
+
+			<label>Price:</label>
+			<input type="text" th:field="*{price}" /><br>
+
+			<label>Category:</label>
+			<select th:field="*{category}">
+				<option value="" disabled>Select Category</option>
+				<option th:each="category : ${categories}" th:value="${category}" th:text="${category}"></option>
+			</select><br>
+
+			<label>Available:</label>
+			<input type="checkbox" th:field="*{available}" /> Yes<br>
+
+			<button type="submit">Add/Update Item</button>
+		</form>
+	</main>
+	<footer>
+		<p>&copy; 2024 Restaurant Management System. All Rights Reserved.</p>
+		<p><a href="mailto:support@restaurantmanagement.com">support@restaurantmanagement.com</a></p>
+	</footer>
+
+</body>
+
+</html>

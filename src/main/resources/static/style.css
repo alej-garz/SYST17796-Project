@@ -1,0 +1,237 @@
+/* Basic reset for styling */
+* {
+	margin: 0;
+	padding: 0;
+	box-sizing: border-box;
+}
+
+body {
+	font-family: Arial, sans-serif;
+	background-color: #f4f4f9;
+	color: #333;
+	padding: 20px;
+}
+
+/* Styling the table like a menu */
+table {
+	width: 100%;
+	border-collapse: collapse;
+	margin-bottom: 20px;
+	font-size: 1em;
+	background-color: #fff;
+	box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+}
+
+table th,
+table td {
+	padding: 15px;
+	text-align: left;
+	border-bottom: 1px solid #ddd;
+}
+
+table th {
+	background-color: #6c757d;
+	color: #fff;
+	font-weight: bold;
+}
+
+table tr:hover {
+	background-color: #f1f1f1;
+}
+
+table td a {
+	color: #007bff;
+	text-decoration: none;
+	font-weight: bold;
+}
+
+table td a:hover {
+	color: #0056b3;
+	text-decoration: underline;
+}
+
+table td {
+	padding: 10px 15px;
+}
+
+/* Form styling */
+form {
+	max-width: 500px;
+	margin: 0 auto;
+	padding: 20px;
+	background-color: #fff;
+	box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+	border-radius: 5px;
+}
+
+form h2 {
+	margin-bottom: 15px;
+	font-size: 1.5em;
+	text-align: center;
+	color: #333;
+}
+
+form label {
+	display: block;
+	margin-top: 10px;
+	font-weight: bold;
+	color: #555;
+}
+
+form input[type="text"],
+form select,
+form input[type="checkbox"] {
+	width: 100%;
+	padding: 8px;
+	margin-top: 5px;
+	border: 1px solid #ddd;
+	border-radius: 4px;
+	font-size: 1em;
+}
+
+form input[type="checkbox"] {
+	width: auto;
+	margin-right: 5px;
+}
+
+form button {
+	display: block;
+	width: 100%;
+	padding: 10px;
+	margin-top: 15px;
+	background-color: #28a745;
+	border: none;
+	border-radius: 4px;
+	color: #fff;
+	font-size: 1em;
+	font-weight: bold;
+	cursor: pointer;
+}
+
+form button:hover {
+	background-color: #218838;
+}
+
+form button:active {
+	background-color: #1e7e34;
+}
+
+/* Reset and basic setup */
+* {
+	margin: 0;
+	padding: 0;
+	box-sizing: border-box;
+}
+
+body {
+	font-family: Arial, sans-serif;
+	background-color: #f4f4f9;
+	color: #333;
+	padding: 20px;
+}
+
+/* Navigation Bar */
+nav {
+	background-color: #333;
+	padding: 10px 20px;
+	margin-bottom: 20px;
+}
+
+nav ul {
+	list-style: none;
+	display: flex;
+	justify-content: center;
+}
+
+nav ul li {
+	margin: 0 15px;
+}
+
+nav ul li a {
+	color: #fff;
+	text-decoration: none;
+	font-weight: bold;
+}
+
+nav ul li a:hover {
+	color: #ddd;
+}
+
+/* Header */
+header {
+	text-align: center;
+	padding: 50px 0;
+	background-color: #6c757d;
+	color: #fff;
+}
+
+header h1 {
+	font-size: 2.5em;
+	margin-bottom: 10px;
+}
+
+header p {
+	font-size: 1.2em;
+}
+
+/* Main Content */
+main {
+	max-width: 800px;
+	margin: 0 auto;
+	padding: 20px;
+}
+
+main section {
+	margin-bottom: 40px;
+	text-align: center;
+	padding: 20px;
+	border: 1px solid #ddd;
+	border-radius: 8px;
+	background-color: #fff;
+	box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+}
+
+main h2 {
+	font-size: 1.8em;
+	margin-bottom: 10px;
+	color: #333;
+}
+
+main p {
+	font-size: 1em;
+	margin-bottom: 20px;
+	color: #555;
+}
+
+.button {
+	display: inline-block;
+	padding: 10px 20px;
+	background-color: #007bff;
+	color: #fff;
+	text-decoration: none;
+	font-weight: bold;
+	border-radius: 4px;
+}
+
+.button:hover {
+	background-color: #0056b3;
+}
+
+/* Footer */
+footer {
+	text-align: center;
+	padding: 20px;
+	background-color: #333;
+	color: #fff;
+	font-size: 0.9em;
+	margin-top: 20px;
+}
+
+footer a {
+	color: #ddd;
+	text-decoration: none;
+}
+
+footer a:hover {
+	color: #fff;
+}

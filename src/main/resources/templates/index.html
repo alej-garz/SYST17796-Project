@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html xmlns:th="https://www.thymeleaf.org">
+
+<head>
+	<title>Restaurant Management Dashboard</title>
+	<link rel="stylesheet" href="/style.css">
+</head>
+
+<body>
+	<nav>
+		<ul>
+			<li><a th:href="@{/}">Dashboard</a></li>
+			<li><a th:href="@{/menu}">Manage Menu</a></li>
+			<li><a th:href="@{/createOrder}">Create Order</a></li>
+		</ul>
+	</nav>
+
+	<header>
+		<h1>Restaurant Management Dashboard</h1>
+		<p>Welcome to the restaurant management system. Use this dashboard to manage daily operations, update the menu,
+			and track orders.</p>
+	</header>
+
+	<main>
+		<section>
+			<h2>Manage Menu</h2>
+			<p>View and update the menu to ensure all items are current and accurate. This section allows you to add new
+				dishes, update descriptions, and adjust pricing.</p>
+			<a th:href="@{/menu}" class="button">Go to Menu Management</a>
+		</section>
+
+		<section>
+			<h2>Create and Manage Orders</h2>
+			<p>Create new orders and keep track of current orders. Use this section to handle customer orders and ensure
+				they are fulfilled accurately and on time.</p>
+			<a th:href="@{/createOrder}" class="button">Create New Order</a>
+		</section>
+	</main>
+
+	<footer>
+		<p>&copy; 2024 Restaurant Management System. All Rights Reserved.</p>
+		<p><a href="mailto:support@restaurantmanagement.com">support@restaurantmanagement.com</a></p>
+	</footer>
+
+</body>
+
+</html>
