@@ -1,4 +1,4 @@
-package ca.sheridancollege.roerickr.beans;
+package ca.sheridancollege.outstandingjavadevelopersteam.beans;
 
 import java.sql.Date;
 

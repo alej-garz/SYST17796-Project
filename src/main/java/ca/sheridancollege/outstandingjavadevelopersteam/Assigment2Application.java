@@ -1,4 +1,4 @@
-package ca.sheridancollege.roerickr;
+package ca.sheridancollege.outstandingjavadevelopersteam;
 
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
