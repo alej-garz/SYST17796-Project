@@ -39,7 +39,7 @@ public class OrderController {
         return "createOrder"; // Renders createOrder.html
     }
 
-    // Handle creating a new order
+
     @PostMapping("/submitOrder")
     public String submitOrder(@ModelAttribute Order order, RedirectAttributes redirectAttributes, Model model) {
         // If orderDate is null, set it to today's date
@@ -57,12 +57,12 @@ public class OrderController {
         } else {
             model.addAttribute("message", "Please select an inventory item and enter a valid quantity.");
             model.addAttribute("inventoryItemList", da.getInventoryItemList());
-            return "createOrder"; // Show the form again with an error
+            return "createOrder"; 
         }
         return "redirect:/order";
     }
 
-    // Edit Order Page
+  
     @GetMapping("/editOrder/{id}")
     public String editOrderPage(@PathVariable Integer id, Model model) {
         List<Order> orderList = da.getOrderList();
