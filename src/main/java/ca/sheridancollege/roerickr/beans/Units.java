@@ -1,11 +1,19 @@
 package ca.sheridancollege.roerickr.beans;
 
-public enum Units {
-	KG,
-	LITERS,
-	PIECES,
-	OZ,
-	G
-}
+import lombok.Getter;
 
-// hey 
+@Getter
+public enum Units {
+    KG("Kilograms"),
+    LITERS("Liters"),
+    PIECES("Pieces"),
+    OZ("Ounces"),
+    G("Grams"),
+    ROLLS("Rolls"); 
+
+    private final String description;
+
+    Units(String description) {
+        this.description = description;
+    }
+}

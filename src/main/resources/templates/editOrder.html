@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html xmlns:th="https://www.thymeleaf.org">
 <head>
-    <title>Create New Order</title>
+    <title>Edit Order</title>
     <link rel="stylesheet" href="/style.css">
 </head>
 <body>
@@ -14,18 +14,22 @@
         </ul>
     </nav>
     <header>
-        <h1>Create New Order</h1>
-        <p>Fill in the details below to create a new order. Select an inventory item and specify the quantity.</p>
+        <h1>Edit Order</h1>
+        <p>Update the order details below. Select an inventory item and specify the quantity.</p>
     </header>
     <main>
-        <form th:action="@{/submitOrder}" method="post" th:object="${order}">
+        <form th:action="@{/updateOrder}" method="post" th:object="${order}">
+            <input type="hidden" th:field="*{id}"/>
+
+            <!-- Select Inventory Item -->
             <div>
                 <label for="inventoryItem">Select Inventory Item:</label>
                 <select id="inventoryItem" th:field="*{inventoryItem.id}" required>
                     <option value="" disabled>Select an item</option>
                     <option th:each="item : ${inventoryItemList}"
                             th:value="${item.id}"
-                            th:text="${item.name} + ' - $' + ${item.pricePerUnit}"></option>
+                            th:text="${item.name} + ' - $' + ${item.pricePerUnit}"
+                            th:selected="${order.inventoryItem != null and order.inventoryItem.id == item.id}"></option>
                 </select>
             </div>
 
@@ -35,7 +39,7 @@
                 <input type="number" id="quantityToOrder" th:field="*{quantityToOrder}" min="1" required>
             </div>
 
-            <!-- Order Date  -->
+            <!-- Order Date -->
             <div>
                 <label for="orderDate">Order Date:</label>
                 <input type="date" id="orderDate" th:field="*{orderDate}" required>
@@ -45,13 +49,13 @@
             <div>
                 <label for="status">Status:</label>
                 <select id="status" th:field="*{status}" required>
-                    <option value="Pending">Pending</option>
-                    <option value="Completed">Completed</option>
-                    <option value="Cancelled">Cancelled</option>
+                    <option value="Pending" th:selected="${order.status == 'Pending'}">Pending</option>
+                    <option value="Completed" th:selected="${order.status == 'Completed'}">Completed</option>
+                    <option value="Cancelled" th:selected="${order.status == 'Cancelled'}">Cancelled</option>
                 </select>
             </div>
 
-            <button type="submit" class="button">Submit Order</button>
+            <button type="submit" class="button">Update Order</button>
         </form>
     </main>
 </body>

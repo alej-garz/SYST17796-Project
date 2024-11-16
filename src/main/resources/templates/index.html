@@ -10,8 +10,10 @@
 	<nav>
 		<ul>
 			<li><a th:href="@{/}">Dashboard</a></li>
-			<li><a th:href="@{/menu}">Manage Menu</a></li>
-			<li><a th:href="@{/createOrder}">Create Order</a></li>
+			<li><a th:href="@{/menu}">Menu</a></li>
+			<li><a th:href="@{/order}">Orders</a></li>
+	
+			 <li><a th:href="@{/inventory}">Manage Inventory</a></li> <!-- New Inventory Link -->
 		</ul>
 	</nav>
 
@@ -33,8 +35,18 @@
 			<h2>Create and Manage Orders</h2>
 			<p>Create new orders and keep track of current orders. Use this section to handle customer orders and ensure
 				they are fulfilled accurately and on time.</p>
-			<a th:href="@{/createOrder}" class="button">Create New Order</a>
+			<a th:href="@{/order}" class="button">Go to Order</a>
 		</section>
+		
+		
+		 <!-- New Inventory Management Section -->
+        <section>
+            <h2>Manage Inventory</h2>
+            <p>Track and manage inventory items to ensure stock levels are maintained. Use this section to add new items,
+                update quantities, and monitor stock availability.</p>
+            <a th:href="@{/inventory}" class="button">Go to Inventory Management</a>
+        </section>
+        
 	</main>
 
 	<footer>

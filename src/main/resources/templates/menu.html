@@ -2,79 +2,138 @@
 <html xmlns:th="https://www.thymeleaf.org">
 
 <head>
-	<title>Menu Management</title>
-	<link rel="stylesheet" href="/style.css">
+    <title>Menu Management</title>
+    <link rel="stylesheet" href="/style.css">
+    <style>
+      
+        h2.menu-title {
+            text-align: center;
+            font-size: 2rem;
+            font-weight: bold;
+            margin-bottom: 20px;
+            color: #333;
+            text-transform: uppercase;
+        }
+
+       
+        .error {
+            color: red;
+            font-size: 0.9rem;
+            text-align: center;
+            margin-bottom: 10px;
+        }
+    </style>
 </head>
 
 <body>
-	<nav>
+   <nav>
 		<ul>
 			<li><a th:href="@{/}">Dashboard</a></li>
-			<li><a th:href="@{/menu}">Manage Menu</a></li>
-			<li><a th:href="@{/createOrder}">Create Order</a></li>
+			
+			<li><a th:href="@{/order}">Order</a></li>
+	
+			 <li><a th:href="@{/inventory}">Manage Inventory</a></li> 
 		</ul>
 	</nav>
 
-	<header>
-		<h1>Menu Management</h1>
-		<p>Manage and update the restaurant menu. Add new items, modify existing ones, or remove items that are no
-			longer available.</p>
-	</header>
-	<main>
-		<h2>Our Menu</h2>
-		<table th:if="${menuItemList != null && !#lists.isEmpty(menuItemList)}">
-			<tr>
-				<th>Name</th>
-				<th>Description</th>
-				<th>Price</th>
-				<th>Category</th>
-				<th>Available</th>
-				<th>Edit</th>
-				<th>Delete</th>
-			</tr>
-			<tr th:each="s : ${menuItemList}">
-				<td th:text="${s.name}"></td>
-				<td th:text="${s.description}"></td>
-				<td th:text="${s.price}"></td>
-				<td th:text="${s.category}"></td>
-				<td th:text="${s.available ? 'Yes' : 'No'}"></td>
-				<td><a th:href="@{/editMenuItemById/{id}(id=${s.id})}">Edit</a></td>
-				<td><a th:href="@{/deleteMenuItemById/{id}(id=${s.id})}">Delete</a></td>
-			</tr>
-		</table>
-		<br>
-		<hr><br>
+    <header>
+        <h1>Menu Management</h1>
+        <p>Manage and update the restaurant menu. Add new items, modify existing ones, or remove items that are no
+            longer available.</p>
+    </header>
 
-		<form method="post" th:action="@{/insertMenuItem}" th:object="${menuItem}">
-			<h2>Add / Update Menu Item</h2>
-			<input type="hidden" th:field="*{id}" />
+    <main>
+        <h2 class="menu-title">Our Menu</h2> 
+        <form method="post" th:action="@{/insertMenuItem}" th:object="${menuItem}" onsubmit="return validateForm()">
+            <h2>Add / Update Menu Item</h2>
+            <input type="hidden" th:field="*{id}" />
 
-			<label>Name:</label>
-			<input type="text" th:field="*{name}" /><br>
+            <label>Name:</label>
+            <input type="text" th:field="*{name}" id="name" /><br>
 
-			<label>Description:</label>
-			<input type="text" th:field="*{description}" /><br>
+            <label>Description:</label>
+            <input type="text" th:field="*{description}" id="description" /><br>
 
-			<label>Price:</label>
-			<input type="text" th:field="*{price}" /><br>
+            <label>Price:</label>
+            <input type="text" th:field="*{price}" id="price" /><br>
 
-			<label>Category:</label>
-			<select th:field="*{category}">
-				<option value="" disabled>Select Category</option>
-				<option th:each="category : ${categories}" th:value="${category}" th:text="${category}"></option>
-			</select><br>
+            <label>Category:</label>
+            <select th:field="*{category}" id="category">
+                <option value="" disabled>Select Category</option>
+                <option th:each="category : ${categories}" th:value="${category}" th:text="${category}"></option>
+            </select><br>
 
-			<label>Available:</label>
-			<input type="checkbox" th:field="*{available}" /> Yes<br>
+            <label>Available:</label>
+            <input type="checkbox" th:field="*{available}" /> Yes<br>
 
-			<button type="submit">Add/Update Item</button>
-		</form>
-	</main>
-	<footer>
-		<p>&copy; 2024 Restaurant Management System. All Rights Reserved.</p>
-		<p><a href="mailto:support@restaurantmanagement.com">support@restaurantmanagement.com</a></p>
-	</footer>
+            <button class="button" type="submit">Add/Update Item</button>
+        </form>
 
+        
+        <div class="error" th:if="${message}" th:text="${message}"></div>
+
+        <table th:if="${menuItemList != null && !#lists.isEmpty(menuItemList)}">
+            <thead>
+                <tr>
+                    <th>Name</th>
+                    <th>Description</th>
+                    <th>Price</th>
+                    <th>Category</th>
+                    <th>Available</th>
+                    <th>Edit</th>
+                    <th>Delete</th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr th:each="s : ${menuItemList}">
+                    <td th:text="${s.name}"></td>
+                    <td th:text="${s.description}"></td>
+                    <td th:text="${s.price}"></td>
+                    <td th:text="${s.category}"></td>
+                    <td th:text="${s.available ? 'Yes' : 'No'}"></td>
+                    <td>
+                        <a class="button" th:href="@{/editMenuItemById/{id}(id=${s.id})}">Edit</a>
+                    </td>
+                    <td>
+                        <a class="button danger" th:href="@{/deleteMenuItemById/{id}(id=${s.id})}">Delete</a>
+                    </td>
+                </tr>
+            </tbody>
+        </table>
+
+        <br>
+        <hr>
+        <br>
+
+        
+    </main>
+
+    <footer>
+        <p>&copy; 2024 Restaurant Management System. All Rights Reserved.</p>
+        <p><a href="mailto:support@restaurantmanagement.com">support@restaurantmanagement.com</a></p>
+    </footer>
+
+    <!-- JavaScript for validation -->
+    <script>
+        function validateForm() {
+            const name = document.getElementById("name").value.trim();
+            const description = document.getElementById("description").value.trim();
+            const price = document.getElementById("price").value.trim();
+            const category = document.getElementById("category").value;
+
+            if (!name || !description || !price || !category) {
+                alert("All fields (Name, Description, Price, Category) are required!");
+                return false;
+            }
+
+            if (isNaN(price) || price <= 0) {
+                alert("Price must be a positive number.");
+                return false; 
+            }
+
+            return true; 
+        }
+    </script>
 </body>
 
 </html>

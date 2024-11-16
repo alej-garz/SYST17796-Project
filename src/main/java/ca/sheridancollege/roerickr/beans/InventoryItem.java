@@ -1,13 +1,14 @@
 package ca.sheridancollege.roerickr.beans;
 
 import lombok.Data;
+import lombok.NoArgsConstructor;
 
 @Data
+@NoArgsConstructor
 public class InventoryItem {
-	private Integer id;
-	private String name;
-	private int quantity;
-	private Units unit;
-	private float pricePerUnit;
-	
+    private Integer id;
+    private String name;
+    private int quantity;
+    private Units unit;  // Enum type Units
+    private float pricePerUnit;
 }

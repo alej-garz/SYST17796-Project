@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+
+<head>
+    <title>Order Management</title>
+    <link rel="stylesheet" href="/style.css">
+</head>
+
+<body>
+    <nav>
+        <ul>
+            <li><a th:href="@{/}">Dashboard</a></li>
+            <li><a th:href="@{/menu}">Manage Menu</a></li>
+            <li><a th:href="@{/inventory}">Manage Inventory</a></li>
+            
+        </ul>
+    </nav>
+
+    <header>
+        <h1>Order Management</h1>
+        <a class="button" th:href="@{/createOrder}">Create New Order</a>
+    </header>
+
+    <main>
+        <div th:if="${message}" class="alert alert-success" th:text="${message}"></div>
+        <table>
+            <thead>
+                <tr>
+                    <th>Order ID</th>
+                    <th>Item</th>
+                    <th>Quantity</th>
+                    <th>Status</th>
+                    <th>Order Date</th>
+                    <th>Total Price</th>
+                    <th>Actions</th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr th:each="order : ${orderList}">
+                    <td th:text="${order.id}"></td>
+                    <td th:text="${order.inventoryItem.name}"></td>
+                    <td th:text="${order.quantityToOrder}"></td>
+                    <td th:text="${order.status}"></td>
+                    <td th:text="${order.orderDate}"></td>
+                    <td th:text="${#numbers.formatDecimal(order.totalCost, 2, 2)}"></td>
+                    <td>
+                        <a class="button" th:href="@{'/editOrder/' + ${order.id}}">Edit</a>
+                    </td>
+                </tr>
+            </tbody>
+        </table>
+    </main>
+
+    <footer>
+        <p>&copy; 2024 Restaurant Management System. All Rights Reserved.</p>
+        <p><a href="mailto:support@restaurantmanagement.com">support@restaurantmanagement.com</a></p>
+    </footer>
+</body>
+
+</html>

@@ -24,16 +24,3 @@ CREATE TABLE orders (
     FOREIGN KEY (inventory_item_id) REFERENCES inventory_items(id)
 );
 
-INSERT INTO menu_items (name, description, price, category, available) VALUES
-('Garlic Bread', 'Toasted bread with garlic and herbs', 5.50, 'APETIZER', TRUE),
-('Caesar Salad', 'Fresh romaine lettuce with Caesar dressing', 8.99, 'APETIZER', TRUE),
-('Spaghetti Carbonara', 'Classic pasta with creamy sauce, bacon, and cheese', 14.99, 'MAIN_COURSE', TRUE),
-('Grilled Chicken Breast', 'Juicy chicken breast with vegetables', 18.50, 'MAIN_COURSE', TRUE),
-('Chocolate Lava Cake', 'Warm chocolate cake with a gooey center', 7.99, 'DESSERT', TRUE),
-('Cheesecake', 'Creamy cheesecake with a graham cracker crust', 6.99, 'DESSERT', TRUE),
-('Coca-Cola', 'Chilled Coca-Cola can', 2.50, 'DRINKS', TRUE),
-('Orange Juice', 'Freshly squeezed orange juice', 3.00, 'DRINKS', TRUE),
-('Margarita Pizza', 'Classic pizza with tomato, cheese, and basil', 12.99, 'MAIN_COURSE', TRUE),
-('French Fries', 'Crispy french fries with ketchup', 4.50, 'APETIZER', TRUE),
-('Tiramisu', 'Layered dessert with coffee and mascarpone', 6.50, 'DESSERT', TRUE),
-('Espresso', 'Strong coffee shot', 2.00, 'DRINKS', TRUE);
