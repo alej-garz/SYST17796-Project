@@ -33,7 +33,7 @@ public class MenuController {
     	
     	if (menuItem.getId() == null) {
     		da.insertMenuItem(menuItem);
-    	}else {
+    	} else {
     		da.updateMenuItem(menuItem);
     	}
     	
@@ -49,7 +49,7 @@ public class MenuController {
 		model.addAttribute("MenuItem", new MenuItem());
 		model.addAttribute("MenuItem", da.getMenuItemList());
 		return "redirect:/menu";
-    };
+    }
     
     @GetMapping("/editMenuItemById/{id}")
     public String editMenuItemById(Model model, @PathVariable Long id) {

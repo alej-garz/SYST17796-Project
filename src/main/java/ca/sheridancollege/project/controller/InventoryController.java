@@ -27,7 +27,7 @@ public class InventoryController {
     }
 
     @PostMapping("/insertInventoryItem")
-    public String addInventoryItem(Model model, @ModelAttribute InventoryItem inventoryItem) {
+    public String addInventoryItem(@ModelAttribute InventoryItem inventoryItem) {
         if (inventoryItem.getId() == null) {
             da.insertInventoryItem(inventoryItem);
         } else {
