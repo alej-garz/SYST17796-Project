@@ -159,3 +159,19 @@ INSERT INTO orders (inventory_item_id, quantity_to_order, order_date, status) VA
 (7, 3, '2024-11-19', 'Completed'),
 (8, 17, '2024-11-20', 'Pending');
 
+INSERT INTO reviews (author, description, rating) VALUES
+('John Doe', 'Great product, highly recommend!', 'EXCELLENT'),
+('Jane Smith', 'Not what I expected, but okay overall.', 'AVERAGE'),
+('Alice Johnson', 'Terrible experience, would not buy again.', 'BAD'),
+('Bob Brown', 'Good quality, worth the price.', 'GOOD'),
+('Charlie White', 'Amazing! Exceeded all expectations.', 'EXCELLENT'),
+('Daisy Green', 'Mediocre product, could be improved.', 'AVERAGE'),
+('Eve Black', 'Absolutely love it! Will buy again.', 'EXCELLENT'),
+('Frank Moore', 'Not great, but not the worst either.', 'AVERAGE'),
+('Grace Hall', 'Fantastic quality and fast shipping.', 'EXCELLENT'),
+('Hank King', 'Low quality, broke within a week.', 'BAD'),
+('Ivy Lee', '', 'GOOD'),
+('Jack Stone', 'Decent product, matches description.', 'GOOD'),
+('Kelly Adams', 'Terrible customer service, do not recommend.', 'BAD'),
+('Leo Ford', 'Met expectations, no complaints.', 'GOOD'),
+('Mia Clarke', 'Outstanding! Couldn’t be happier.', 'EXCELLENT');

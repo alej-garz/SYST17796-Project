@@ -2,16 +2,12 @@ package ca.sheridancollege.project.database;
 
 import java.util.List;
 
+import ca.sheridancollege.project.beans.*;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.jdbc.core.BeanPropertyRowMapper;
 import org.springframework.jdbc.core.namedparam.MapSqlParameterSource;
 import org.springframework.jdbc.core.namedparam.NamedParameterJdbcTemplate;
 import org.springframework.stereotype.Repository;
-
-import ca.sheridancollege.project.beans.InventoryItem;
-import ca.sheridancollege.project.beans.MenuItem;
-import ca.sheridancollege.project.beans.Order;
-import ca.sheridancollege.project.beans.Units;
 
 @Repository
 public class DatabaseAccess {
@@ -196,5 +192,12 @@ public class DatabaseAccess {
         params.addValue("orderId", orderId);
 
         jdbc.update(query, params);
+    }
+
+    // ----------------------- Review Methods -----------------------
+    public List<Review> getReviewsList() {
+        String query = "SELECT * FROM reviews ORDER BY id";
+
+        return jdbc.query(query, new MapSqlParameterSource(), new BeanPropertyRowMapper<Review>(Review.class));
     }
 }

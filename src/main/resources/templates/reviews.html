@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="en"
+      xmlns:th="http://www.thymeleaf.org"
+>
+<head>
+    <meta charset="UTF-8">
+    <title>Reviews</title>
+    <link rel="stylesheet" href="/style.css">
+</head>
+<body>
+    <nav>
+        <ul>
+            <li><a th:href="@{/}">Dashboard</a></li>
+            <li><a th:href="@{/menu}">Manage Menu</a></li>
+            <li><a th:href="@{/inventory}">Manage Inventory</a></li>
+
+        </ul>
+    </nav>
+    <header>
+        <h1>Reviews</h1>
+    </header>
+    <main>
+        <table>
+            <thead>
+            <tr>
+                <th>Author</th>
+                <th>Rating</th>
+                <th>Description</th>
+            </tr>
+            </thead>
+            <tbody>
+            <tr th:each="review : ${reviews}">
+                <td th:text="${review.getAuthor()}"></td>
+                <td th:text="${review.getRating()}"></td>
+                <td th:if="${review.getDescription() != ''}" th:text="${review.getDescription()}"></td>
+                <td th:if="${review.getDescription() == ''}" th:text="'No description provided for this review'" id="no-desc-review"></td>
+            </tr>
+            </tbody>
+        </table>
+    </main>
+    <footer>
+        <p>&copy; 2024 Restaurant Management System. All Rights Reserved.</p>
+        <p><a href="mailto:support@restaurantmanagement.com">support@restaurantmanagement.com</a></p>
+    </footer>
+</body>
+</html>

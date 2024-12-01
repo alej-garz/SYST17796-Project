@@ -24,3 +24,10 @@ CREATE TABLE orders (
     FOREIGN KEY (inventory_item_id) REFERENCES inventory_items(id)
 );
 
+CREATE TABLE reviews (
+    id INTEGER PRIMARY KEY AUTO_INCREMENT,
+    author VARCHAR(50) NOT NULL,
+    description VARCHAR(255),
+    rating VARCHAR(10) NOT NULL
+);
+
