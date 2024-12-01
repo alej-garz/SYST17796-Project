@@ -10,7 +10,7 @@
 		<relativePath /> <!-- lookup parent from repository -->
 	</parent>
 	<groupId>ca.sheridancollege.roerickr</groupId>
-	<artifactId>Assigment2</artifactId>
+	<artifactId>SYST17796-Project</artifactId>
 	<version>0.0.1-SNAPSHOT</version>
 	<name>Assigment2</name>
 	<description>Demo project for Spring Boot</description>
