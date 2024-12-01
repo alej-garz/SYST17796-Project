@@ -68,12 +68,8 @@ public class OrderController {
 
   
     @GetMapping("/editOrder/{id}")
-    public String editOrderPage(@PathVariable Integer id, Model model) {
-        List<Order> orderList = da.getOrderList();
-        Order order = orderList.stream()
-                               .filter(o -> o.getId().equals(id))
-                               .findFirst()
-                               .orElse(null);
+    public String editOrderPage(@PathVariable("id") Integer id, Model model) {
+        Order order = da.getOrderById(id);
 
         if (order == null) {
             model.addAttribute("message", "Order not found.");
