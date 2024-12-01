@@ -1,4 +1,4 @@
-package ca.sheridancollege.roerickr.controller;
+package ca.sheridancollege.project.controller;
 
 import java.util.List;
 
@@ -10,9 +10,9 @@ import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.ModelAttribute;
 import org.springframework.web.bind.annotation.PathVariable;
 
-import ca.sheridancollege.roerickr.beans.MenuCategory;
-import ca.sheridancollege.roerickr.beans.MenuItem;
-import ca.sheridancollege.roerickr.database.DatabaseAccess;
+import ca.sheridancollege.project.beans.MenuCategory;
+import ca.sheridancollege.project.beans.MenuItem;
+import ca.sheridancollege.project.database.DatabaseAccess;
 
 @Controller
 public class MenuController {

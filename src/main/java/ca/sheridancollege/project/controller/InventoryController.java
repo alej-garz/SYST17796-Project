@@ -1,4 +1,4 @@
-package ca.sheridancollege.roerickr.controller;
+package ca.sheridancollege.project.controller;
 
 
 import org.springframework.beans.factory.annotation.Autowired;
@@ -8,9 +8,9 @@ import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.ModelAttribute;
 import org.springframework.web.bind.annotation.PathVariable;
-import ca.sheridancollege.roerickr.beans.InventoryItem;
-import ca.sheridancollege.roerickr.beans.Units;
-import ca.sheridancollege.roerickr.database.DatabaseAccess;
+import ca.sheridancollege.project.beans.InventoryItem;
+import ca.sheridancollege.project.beans.Units;
+import ca.sheridancollege.project.database.DatabaseAccess;
 
 @Controller
 public class InventoryController {

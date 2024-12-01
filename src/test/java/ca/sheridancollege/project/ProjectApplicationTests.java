@@ -1,10 +1,10 @@
-package ca.sheridancollege.roerickr;
+package ca.sheridancollege.project;
 
 import org.junit.jupiter.api.Test;
 import org.springframework.boot.test.context.SpringBootTest;
 
 @SpringBootTest
-class Assigment2ApplicationTests {
+class ProjectApplicationTests {
 
 	@Test
 	void contextLoads() {

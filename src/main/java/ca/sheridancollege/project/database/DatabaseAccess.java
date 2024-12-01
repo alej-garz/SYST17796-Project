@@ -1,4 +1,4 @@
-package ca.sheridancollege.roerickr.database;
+package ca.sheridancollege.project.database;
 
 import java.util.List;
 
@@ -8,10 +8,10 @@ import org.springframework.jdbc.core.namedparam.MapSqlParameterSource;
 import org.springframework.jdbc.core.namedparam.NamedParameterJdbcTemplate;
 import org.springframework.stereotype.Repository;
 
-import ca.sheridancollege.roerickr.beans.InventoryItem;
-import ca.sheridancollege.roerickr.beans.MenuItem;
-import ca.sheridancollege.roerickr.beans.Order;
-import ca.sheridancollege.roerickr.beans.Units;
+import ca.sheridancollege.project.beans.InventoryItem;
+import ca.sheridancollege.project.beans.MenuItem;
+import ca.sheridancollege.project.beans.Order;
+import ca.sheridancollege.project.beans.Units;
 
 @Repository
 public class DatabaseAccess {

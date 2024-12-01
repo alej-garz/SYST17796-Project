@@ -1,4 +1,4 @@
-package ca.sheridancollege.roerickr.beans;
+package ca.sheridancollege.project.beans;
 
 import java.sql.Date;
 import lombok.Data;

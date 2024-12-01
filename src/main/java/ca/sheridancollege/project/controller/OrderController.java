@@ -1,4 +1,4 @@
-package ca.sheridancollege.roerickr.controller;
+package ca.sheridancollege.project.controller;
 
 import java.sql.Date;
 import java.time.LocalDate;
@@ -13,9 +13,9 @@ import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.ModelAttribute;
 import org.springframework.web.servlet.mvc.support.RedirectAttributes;
 
-import ca.sheridancollege.roerickr.beans.Order;
-import ca.sheridancollege.roerickr.beans.InventoryItem;
-import ca.sheridancollege.roerickr.database.DatabaseAccess;
+import ca.sheridancollege.project.beans.Order;
+import ca.sheridancollege.project.beans.InventoryItem;
+import ca.sheridancollege.project.database.DatabaseAccess;
 
 @Controller
 public class OrderController {
@@ -47,8 +47,12 @@ public class OrderController {
             order.setOrderDate(Date.valueOf(LocalDate.now()));
         }
 
+        // Simplify Booleans into variables for improved readability
+        Boolean isQuantityToOrderPositive = order.getQuantityToOrder() > 0;
+        Boolean isInventoryItemOrIdNotNull = order.getInventoryItem() != null && order.getInventoryItem().getId() != null;
+
         // Validate InventoryItem and quantity
-        if (order.getQuantityToOrder() > 0 && order.getInventoryItem() != null && order.getInventoryItem().getId() != null) {
+        if (isQuantityToOrderPositive && isInventoryItemOrIdNotNull) {
             InventoryItem selectedInventoryItem = da.getInventoryItemById(order.getInventoryItem().getId());
             order.setInventoryItem(selectedInventoryItem);
 
